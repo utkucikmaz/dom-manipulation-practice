@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>DOM intro, selectors and manipulation</title>
+
+    <link rel="stylesheet" href="./css/main.css"></link>
+
+  </head>
+
+
+
+  <body>
+
+    <header>
+      <h1 id="main-title">Primary title</h1>
+      <h2>Secondary title</h2>
+      <h2>Secondary title</h2>
+      <h2>Secondary title</h2>
+    </header>
+
+
+    <section id="products">
+      <h2>Products</h2>
+      <p>Lorem ipsum</p>
+      <p>Lorem ipsum</p>
+      <p>Lorem ipsum</p>
+    </section>
+
+    <section id="reviews">
+      <h2>Reviews</h2>
+      <p>Lorem ipsum</p>
+      <p>Lorem ipsum</p>
+      
+      <h3 class="subtitle">Oh, subtitle I am!</h3>
+      <p class="info">Lorem ipsum</p>
+      <p class="info">Lorem ipsum</p>
+    </section>
+
+
+    <section id="shopping">
+      <h2>Buy now</h2>
+
+      <input id="price" type="number" min="0"  placeholder="Price" />
+      <input type="text" placeholder="Name" />
+      
+    </section>
+
+  
+    <div id="pikachu">
+      <h2>About us</h2>
+      <p>Lorem ipsum</p>
+      <p>Lorem ipsum</p>
+    </div>
+
+
+    <div class="box">
+      <button id="button-1" class="btn">Button 1</button>
+    </div>
+
+
+    <div id="box-2" class="box">
+      <button id="button-2" class="btn">Button 2</button>
+    </div>
+
+
+    <div id="box-3" class="box">
+      
+    </div>
+
+
+    <button id="btn-add">Create a new button</button>
+
+    <footer>
+      <a id="my-link" href="./about.html">About us</a>
+      <a href="./about.html">Contact</a>
+    </footer>
+
+
+    <!-- load JS file last when DOM already loaded so you can access and manipulate with the DOM elements -->
+    <script src="./js/main.js"></script>
+
+  </body>
+</html>
