@@ -125,3 +125,82 @@ btn1.addEventListener("click", () => {
     const box1 = document.getElementById("box-1");
     box1.appendChild(newP);
 });
+
+const allh2 = document.querySelectorAll("header h2");
+
+allh2.forEach(function (h2Elm) {
+    h2Elm.addEventListener("click", function (event) {
+        h2Elm.style.backgroundColor = "green";
+        event.target.innerText = "YOU COUGHT ME";
+    });
+});
+
+const allh2move = document.querySelectorAll("header h2");
+
+allh2move.forEach(function (h2Elm) {
+    let currentLeft = 0;
+
+    h2Elm.addEventListener("mouseover", function (event) {
+        event.target.innerText = "Catch me if you can";
+        currentLeft += Math.floor(Math.random() * 100);
+        const moveLeft = Math.random() < 0.5;
+        h2Elm.style.position = "relative";
+        if (moveLeft) {
+            h2Elm.style.left = currentLeft + "px";
+            h2Elm.style.right = "auto";
+        } else {
+            h2Elm.style.right = currentLeft + "px";
+            h2Elm.style.left = "auto";
+        }
+    });
+});
+
+// - Goal:
+//   - Add functionality to detect if the user presses "spacebar"
+//   - Ex. if user presses spacebar, `console.log("you've pressed the spacebar")`
+
+// - (bonus 1): detect also arrow keys (down, up, left, right)
+
+// - (bonus 2): if user presses spacebar, add a div to the dom.
+
+// - (bonus 3): if user presses arrow up, move that div (hint: `position: relative`)
+
+const initialHtml = document.documentElement.innerHTML;
+
+const newDiv = document.createElement("div");
+document.body.appendChild(newDiv);
+
+document.addEventListener("keydown", (e) => {
+    if (e.keyCode === 32) {
+        document.body.innerHTML = " ";
+        document.body.appendChild(newDiv);
+        console.log("Spacebar");
+        newDiv.style.width = "50px";
+        newDiv.style.height = "50px";
+        newDiv.style.backgroundColor = "red";
+        newDiv.style.position = "relative";
+        newDiv.style.top = "10rem";
+        newDiv.style.left = "10rem";
+        newDiv.style.border = "15px solid black";
+    }
+    if (e.keyCode === 38) {
+        console.log("Up");
+        const currentTop = parseInt(newDiv.style.top);
+        newDiv.style.top = `${currentTop - 10}rem`;
+    } else if (e.keyCode === 40) {
+        console.log("Down");
+        const currentTop = parseInt(newDiv.style.top);
+        newDiv.style.top = `${currentTop + 10}rem`;
+    } else if (e.keyCode === 37) {
+        console.log("Left");
+        const currentLeft = parseInt(newDiv.style.left);
+        newDiv.style.left = `${currentLeft - 10}rem`;
+    } else if (e.keyCode === 39) {
+        console.log("Right");
+        const currentLeft = parseInt(newDiv.style.left);
+        newDiv.style.left = `${currentLeft + 10}rem`;
+    } else if (e.keyCode === 27) {
+        console.log("Pressed esc");
+        document.documentElement.innerHTML = initialHtml;
+    }
+});
